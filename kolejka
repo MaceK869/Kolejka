@@ -1,0 +1,41 @@
+#include <queue>
+#include <iostream>
+#include <fstream>
+using namespace std;
+int main()
+
+{
+ std::queue < int > kolejka;
+ int liczba = 0;
+ std::cout << "Podaj liczbe:";
+    std::cin >> liczba;
+    kolejka.push( 1 );
+    kolejka.push( 2 );
+    kolejka.push( 3 );
+    kolejka.push( 4 );
+    kolejka.push( liczba );
+    std::cout << "Pierwsza liczba:\n" << kolejka.back() << std::endl;
+    kolejka.back() *= 2;
+    std::cout << "Ostatnia liczba:\n" << kolejka.back() << std::endl;
+ std::cout << "Wprowadz 0 aby zakonczyc:\n";
+  do {
+    std::cin >> liczba;
+    kolejka.push (liczba);
+  } while (liczba);
+ 
+  while (!kolejka.empty())
+  {
+    std::cout << ' ' << kolejka.front();
+    kolejka.pop();
+  }
+  std::cout << '\n';
+
+
+fstream plik;
+plik.open("c:\\sciezjadipliku.txt");
+plik<<liczba<<endl;
+     plik.close();  
+ 
+ 
+ return 0;
+}
